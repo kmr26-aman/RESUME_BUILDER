@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aman's Resume Builder</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- SortableJS -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+  <!-- html2pdf -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- FORM -->
+  <div class="form-section">
+
+    <h1> Resume Builder</h1>
+
+    <!-- Template Selection -->
+    <section>
+      <h2>Select Resume Template</h2>
+
+      <select id="templateSelect">
+        <option value="template1">Professional</option>
+        <option value="template2">Modern</option>
+        <option value="template3">Minimal</option>
+      </select>
+    </section>
+
+    <!-- Profile Photo -->
+    <section>
+      <h2>Profile Photo</h2>
+
+      <input type="file" id="profilePhoto" accept="image/*">
+    </section>
+
+    <!-- Personal Details -->
+    <section>
+      <h2>Personal Information</h2>
+
+      <input type="text" id="name" placeholder="Full Name">
+      <input type="text" id="role" placeholder="Professional Title">
+      <input type="email" id="email" placeholder="Email">
+      <input type="text" id="phone" placeholder="Phone Number">
+      <input type="text" id="location" placeholder="Location">
+      <input type="text" id="linkedin" placeholder="LinkedIn URL">
+      <input type="text" id="github" placeholder="GitHub URL">
+      <textarea id="summary" placeholder="Professional Summary"></textarea>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2>Skills</h2>
+
+      <div id="skillsSection" class="sortable-section">
+        <input type="text" placeholder="Skill">
+      </div>
+
+      <button onclick="addSkill()">+ Add Skill</button>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2>Education</h2>
+
+      <div id="educationSection" class="sortable-section">
+        <div class="education-block drag-item">
+          <input type="text" placeholder="University">
+          <input type="text" placeholder="Degree">
+          <input type="text" placeholder="Year">
+          <input type="text" placeholder="GPA">
+        </div>
+      </div>
+
+      <button onclick="addEducation()">+ Add Education</button>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <h2>Experience</h2>
+
+      <div id="experienceSection" class="sortable-section">
+        <div class="experience-block drag-item">
+          <input type="text" placeholder="Company">
+          <input type="text" placeholder="Role">
+          <input type="text" placeholder="Duration">
+          <textarea placeholder="Description"></textarea>
+        </div>
+      </div>
+
+      <button onclick="addExperience()">+ Add Experience</button>
+    </section>
+
+    <!-- Projects -->
+    <section>
+      <h2>Projects</h2>
+
+      <div id="projectSection" class="sortable-section">
+        <div class="project-block drag-item">
+          <input type="text" placeholder="Project Name">
+          <textarea placeholder="Project Description"></textarea>
+        </div>
+      </div>
+
+      <button onclick="addProject()">+ Add Project</button>
+    </section>
+
+    <!-- Achievements -->
+    <section>
+      <h2>Achievements</h2>
+
+      <div id="achievementSection">
+        <input type="text" placeholder="Achievement">
+      </div>
+
+      <button onclick="addAchievement()">+ Add Achievement</button>
+    </section>
+
+    <!-- Hobbies -->
+    <section>
+      <h2>Hobbies</h2>
+
+      <div id="hobbySection">
+        <input type="text" placeholder="Hobby">
+      </div>
+
+      <button onclick="addHobby()">+ Add Hobby</button>
+    </section>
+
+    <!-- Languages -->
+    <section>
+      <h2>Languages Known</h2>
+
+      <div id="languageSection">
+        <input type="text" placeholder="Language">
+      </div>
+
+      <button onclick="addLanguage()">+ Add Language</button>
+    </section>
+
+    <button class="generate-btn" onclick="generateResume()">
+      Generate Resume
+    </button>
+
+    <button class="save-btn" onclick="saveData()">
+      Save Data
+    </button>
+
+    <button class="download-btn" onclick="downloadPDF()">
+      Download PDF
+    </button>
+
+  </div>
+
+  <!-- RESUME -->
+  <div class="resume-section template1" id="resumePreview">
+
+    <div class="resume-header">
+
+      <img id="previewPhoto" src="" alt="Profile">
+
+      <h1 id="previewName">Your Name</h1>
+
+      <p id="previewRole">Professional Title</p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
